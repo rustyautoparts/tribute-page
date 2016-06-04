@@ -1,0 +1,24 @@
+{
+  "name": "tribute-page",
+  "version": "0.0.1",
+  "description": "A project for Free Code Camp (freecodecamp.com).",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "gulp": "^3.9.1"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rustyautoparts/tribute-page.git"
+  },
+  "author": "Russ Otto <unplugged68@gmail.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/rustyautoparts/tribute-page/issues"
+  },
+  "homepage": "https://github.com/rustyautoparts/tribute-page#readme"
+}
