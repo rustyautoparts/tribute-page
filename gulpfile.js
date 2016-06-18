@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
+    sourcemaps = require('gulp-sourcemaps'),
     notify = require('gulp-notify'),
     bower = require('bower'),
     autoprefix = require('gulp-autoprefixer'),
@@ -23,10 +24,10 @@ gulp.task('icons', function() {
     .pipe(gulp.dest(config.pubPath + '/fonts/'));
 });
 
-gulp.task('css', function() {
+gulp.task('sass', function() {
   return gulp.src(config.sassPath + '/**/*.scss')
+    .pipe(sourcemaps.init('.',{debug: true}))
     .pipe(sass({
-      outputStyle: 'compressed',
       includePaths: [
         config.sassPath,
         config.bowerDir + '/bootstrap-sass/assets/stylesheets',
@@ -36,7 +37,8 @@ gulp.task('css', function() {
       .on("error", notify.onError(function (error) {
         return "Error: " + error.message;
         })))
-    .pipe(gulp.dest(config.pubPath + './css/'))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(config.pubPath + '/css'))
     .pipe(rename({suffix: '.min'}))
     .pipe(minifycss())
     .pipe(gulp.dest(config.pubPath + '/css'));
