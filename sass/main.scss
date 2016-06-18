@@ -1,4 +1,10 @@
-@import 'module/image';
+@import 'modules/colors';
+
+@import 'partials/layout';
+@import 'partials/typography';
+@import 'partials/image';
+@import 'partials/header';
+
 
 // Core variables and mixins
 @import 'bootstrap/variables';
