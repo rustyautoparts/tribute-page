@@ -1,8 +1,10 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
+    mainBowerFiles = require('main-bower-files'),
+    bower = require('main-bower-files'),
+    bowerNormalizer = require('gulp-bower-normalize'),
     sourcemaps = require('gulp-sourcemaps'),
     notify = require('gulp-notify'),
-    bower = require('bower'),
     autoprefix = require('gulp-autoprefixer'),
     minifycss = require('gulp-minify-css'),
     rename = require('gulp-rename'),
@@ -14,14 +16,14 @@ var config = {
   pubPath: './public'
 };
 
-gulp.task('bower', function() {
-  return bower()
-    .pipe(gulp.dest(config.bowerDir));
-});
-
 gulp.task('icons', function() {
   return gulp.src(config.bowerDir + '/font-awesome/fonts/**.*')
     .pipe(gulp.dest(config.pubPath + '/fonts/'));
+});
+
+gulp.task('bower', function() {
+  return gulp.src(mainBowerFiles())
+    .pipe(gulp.dest('dist/lib'));
 });
 
 gulp.task('sass', function() {
