@@ -66,11 +66,6 @@ gulp.task('watch', function() {
   gulp.watch('./src/sass/**/*.scss', ['sass']);
 });
 
-gulp.task('build', function() {
-  gulp.src('./src/index.html')
-    .pipe(gulp.dest('./dist'));
-});
-
 gulp.task('default', ['express', 'watch'], function() {
 
 });
